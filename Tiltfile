@@ -1,8 +1,9 @@
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
-NAMESPACE = os.getenv("NAMESPACE", default='default')
-WAIT_TIMEOUT = os.getenv("WAIT_TIMEOUT", default='10m00s')
+os.putenv("NAMESPACE", 'rohan-ns')
+NAMESPACE = os.getenv("NAMESPACE", default='rohan-ns')
+WAIT_TIMEOUT = os.getenv("WAIT_TIMEOUT", default='0m02s')
 TYPE = os.getenv("TYPE", default='web')
-
+allow_k8s_contexts('test-devops-cluster')
 k8s_custom_deploy(
     'tanzu-java-web-app',
     apply_cmd="tanzu apps workload apply -f config/workload.yaml --update-strategy replace --debug --live-update" +
