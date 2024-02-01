@@ -12,6 +12,8 @@ spec:
     env:
       - name: BP_JVM_VERSION
         value: "11"
+      - name: BP_MAVEN_BUILT_ARTIFACT
+        value: "target/demo-*.jar"
   params:
   - name: annotations
     value:
